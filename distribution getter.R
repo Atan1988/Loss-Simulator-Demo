@@ -23,7 +23,7 @@ get_all_dist_in_session <- function(all_packages = .packages()) {
   bind_rows(lapply(all_packages, get_distr))
 }
 
-get_parameters <- function(distr, type = "q") {
+get_parameters <- function(pckg, distr, type = "q") {
   d <- get(paste0(type, distr))
   args <- unlist(as.list(args(d)))
   
@@ -31,7 +31,8 @@ get_parameters <- function(distr, type = "q") {
     ifelse(args[[x]]=="" | class(args[[x]]) == "call", NA, args[[x]])
   }
   
-  args_df <- data.frame(distr = distr,
+  args_df <- data.frame(package = pckg, 
+                        distr = distr,
                         Parnames = names(args), 
                         Parvars = unlist(sapply(1:length(args), get_par_val)))
   args_df %>% filter(!Parnames %in% c('x', 'p', 'q', 'n'))

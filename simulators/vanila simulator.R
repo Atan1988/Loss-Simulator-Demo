@@ -8,6 +8,6 @@ quantile_simulator_vanila <- function(sz, accdt, Prob_0, Prob_1) {
         Prob_1 = 0.75, 
         p_recovery_dt = runif(sz), 
         p_adequecy = runif(sz),
-        trend = 0
+        sev_trend = 0
   )
 }

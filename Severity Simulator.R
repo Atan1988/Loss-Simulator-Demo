@@ -59,6 +59,20 @@ severity_simulator <- function(acc_dt, p_sev, p_rpt_dt, p_pay_dt, Prob_0, Case_R
 }
 
 
+# parm_list <- list(acc_dt = as.Date("2017-1-1") + sample(seq(1, 365, 1), size = 100, replace = T), 
+#                   p_sev = runif(100), p_rpt_dt=runif(100), p_pay_dt=runif(100), Prob_0 = 0.25,
+#                   Case_Res_trans = NULL,
+#                   Prob_1 = 0.75, p_recovery_dt = runif(100), p_adequecy = runif(100),
+#                   distr_sev = 'gamma', distr_rpt_dt = 'exp',
+#                   distr_pay_dt = 'exp', distr_pay_adequecy = 'unif', distr_recovery_dt = 'exp',
+#                   parvars_sev = data.frame(shape = 2, scale = 25000),
+#                   parvars_rpt_dt = data.frame(rate = 1 / 250),
+#                   parvars_pay_dt = data.frame(rate = 1 / 150),
+#                   parvars_pay_adequecy=data.frame(min = 1, max = 2),
+#                   parvars_recovery_dt = data.frame(rate = 1 / 100),
+#                   sev_trend = 0)
+# 
+# do.call(severity_simulator, parm_list)
 
 # gamma_sim <- severity_simulator(acc_dt = as.Date("2017-1-1") + sample(seq(1, 365, 1), size = 100, replace = T), 
 #                                 p_sev = runif(100), p_rpt_dt=runif(100), p_pay_dt=runif(100), Prob_0 = 0.25, 

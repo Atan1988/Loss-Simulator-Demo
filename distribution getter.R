@@ -23,6 +23,19 @@ get_all_dist_in_session <- function(all_packages = .packages()) {
   bind_rows(lapply(all_packages, get_distr))
 }
 
+get_args <- function(func) {
+  args <- unlist(as.list(args(func)))
+  
+  get_par_val <- function(x) {
+    ifelse(args[[x]]=="" | class(args[[x]]) == "call", NA, args[[x]])
+  }
+  
+  args_df <- data.frame(Parnames = names(args), 
+                        Parvars = unlist(sapply(1:length(args), get_par_val)))
+  
+  return(args_df)
+}
+
 get_parameters <- function(pckg, distr, type = "q") {
   d <- get(paste0(type, distr))
   args <- unlist(as.list(args(d)))

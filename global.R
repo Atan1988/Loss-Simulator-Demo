@@ -25,6 +25,8 @@ R_version <- paste0(R.version$major, ".", R.version$minor)
 loaded_distrs <- bind_rows(mapply(get_parameters, pckg= get_all_dist_in_session()$Package, 
                                   distr = get_all_dist_in_session()$distr,  SIMPLIFY = F))
 
+sim_pars_list <- c('sev', 'rpt_dt', 'pay_dt', 'pay_adequecy', 'recovery_dt')
+
 R_doc_url <- "https://www.rdocumentation.org/packages/"
 
 get_help_url <- function(pkg, func) {
